@@ -11,7 +11,7 @@ export default function ChangeRoutes() {
             <Routes>
                 <Route path='/' element={<Movie />} />
                 <Route path='/movie/:movieID/' element={<Time />} />
-                <Route path='/seat' element={<Seat />} />
+                <Route path='/session/:sessionID' element={<Seat />} />
                 <Route path='/success' element={<Success />} />
             </Routes>
         </BrowserRouter>
