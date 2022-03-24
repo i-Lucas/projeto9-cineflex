@@ -10,7 +10,7 @@ export default function RenderizarRotas() {
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={<Movie />} />
-                <Route path='/time' element={<Time />} />
+                <Route path='/movie/:movieID/' element={<Time />} />
                 <Route path='/seat' element={<Seat />} />
                 <Route path='/success' element={<Success />} />
             </Routes>
