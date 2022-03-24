@@ -5,7 +5,7 @@ import Time from '../Time'
 import Seat from '../Seat'
 import Success from '../Success'
 
-export default function RenderizarRotas() {
+export default function ChangeRoutes() {
     return (
         <BrowserRouter>
             <Routes>
