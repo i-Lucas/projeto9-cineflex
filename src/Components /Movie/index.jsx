@@ -3,6 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from '../Header'
 import './movie.css'
 
 export default function ChooseMovie() {
@@ -29,7 +30,7 @@ function RenderMovies({ movies }) {
     
     return (
         <section className="choose-movies ">
-            <header><h1>CINEFLEX</h1></header>
+            <Header />
             <div className="title"><h1>Selecione o filme</h1></div>
             <div className="movies-container">
                 <div className="movies-contents">
