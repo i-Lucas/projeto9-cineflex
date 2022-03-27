@@ -45,7 +45,7 @@ function generateMovies(movies) {
     return (
         movies.map((movie, index) =>
             <div className="box-movie" key={index}>
-                <Link to={`/movie/${movie.id}`}>
+                <Link to={`/sessions/${movie.id}`}>
                     <img src={movie.posterURL} key={index} alt='' />
                 </Link>
             </div>)

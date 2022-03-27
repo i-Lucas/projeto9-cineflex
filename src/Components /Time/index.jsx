@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import Header from '../Header/'
+import Footer from '../Footer/'
 import './time.css'
 
 export default function ChooseTime() {
@@ -23,7 +24,7 @@ export default function ChooseTime() {
             .catch(error => {
                 console.log(error)
             })
-            
+
     }, [movieID])
 
     function renderShowtimes(time) {
@@ -31,7 +32,7 @@ export default function ChooseTime() {
             time.map(({ name, id }, index) =>
                 <div className="available-time" key={index}>
                     <div className="time-box">
-                        <Link style={{ textDecoration: 'none' }} to={`/session/${id}`}>
+                        <Link style={{ textDecoration: 'none' }} to={`/seats/${id}`}>
                             <h1>{name}</h1>
                         </Link>
                     </div>
@@ -60,15 +61,7 @@ export default function ChooseTime() {
             <div className="contents">
                 {renderWeekDays(times)}
             </div>
-            <footer>
-                <div className="movie-img">
-                    <img src={movie.posterURL} alt="" />
-                </div>
-                <div className="movie-title">
-                    <h1>{movie.title}</h1>
-                    <h1>Quinta-feira - 15:00</h1>
-                </div>
-            </footer>
+            <Footer img={movie.posterURL} title={movie.title} />
         </section>
     )
 }
