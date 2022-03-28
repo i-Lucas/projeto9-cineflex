@@ -130,6 +130,55 @@
 .green  { background-color: #8DD7CF }
 .gray   { background-color: #C3CFD9 }
 .yellow { background-color: #FBE192 }
+
+.inputs-container {
+
+    width: 100%;
+    height: 30%;
+}
+
+form {
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input {
+
+    width: 90%;
+    height: 45%;
+    margin-top: 1%;
+
+    background: #FFFFFF;
+    border: 2px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.inputs-container button {
+
+    width: 90%;
+    height: 35%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+    cursor: pointer;
+
+    background: #E8833A;
+    border-radius: 3px;
+
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+}
     
 @media (min-width: 600px) {
 
@@ -148,5 +197,10 @@
         
         width: 5%;
         height: 12%;
+    }
+
+    .inputs-container {
+
+        width: 50%;
     }
 }
