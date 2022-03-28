@@ -38,7 +38,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: lightblue
+    cursor: pointer
 }
 
 .seat {
@@ -54,16 +54,14 @@
     background: #C3CFD9;
     border: 1px solid #808F9D;
     box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 14px;
 }
 
 .seat h1 {
 
     font-family: 'Roboto';
     font-weight: 400;
-    font-size: 11px;
-    line-height: 13px;
-    letter-spacing: 0.04em;
+    font-size: 12px;
     color: #000000;
 }
 
@@ -71,9 +69,7 @@
 
     width: 95%;
     height: 10%;
-
     display: flex;
-    background-color: lightgreen
 }
 
 .selected, .available, .unavailable {
@@ -130,14 +126,21 @@
     color: #4E5A65;
 }
 
+/* seats colors */
+.green  { background-color: #8DD7CF }
+.gray   { background-color: #C3CFD9 }
+.yellow { background-color: #FBE192 }
+    
 @media (min-width: 600px) {
 
     .seats {
+
         width: 65%;
         height: 40%;
     }
 
     .description {
+
         width: 65%;
     }
     
