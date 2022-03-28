@@ -32,7 +32,7 @@ export default function ChooseTime() {
             time.map(({ name, id }, index) =>
                 <div className="available-time" key={index}>
                     <div className="time-box">
-                        <Link style={{ textDecoration: 'none' }} to={`/seats/${id}`}>
+                        <Link style={{ textDecoration: 'none' }} state={name} to={`/seats/${id}`}>
                             <h1>{name}</h1>
                         </Link>
                     </div>

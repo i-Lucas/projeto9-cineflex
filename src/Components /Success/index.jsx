@@ -1,10 +1,40 @@
 import { useLocation } from 'react-router-dom'
 
-export default function Success () {
+import Header from '../Header/'
+import './success.css'
+
+export default function Success() {
 
     let data = useLocation()
-    console.log(data.state)
-    return(
-        <h1>Sucess</h1>
+    const info = data.state
+
+    return (
+        <section className="success">
+            <Header />
+            <div className="success-text">
+                <h1>Pedido feito com sucesso!</h1>
+            </div>
+            <div className="success-container">
+
+                <h1>Filme e sessão</h1>
+                <h2>{info.title}</h2>
+                <h2>{info.date} {info.time}</h2>
+
+                <h1>Ingressos</h1>
+                <RenderSeats seats={info.seats} />      
+
+                <h1>Comprador</h1>
+                <h2>Nome: {info.nome}</h2>
+                <h2>CPF: {info.cpf}</h2>
+
+            </div>
+        </section>
     )
-}   
+}
+
+function RenderSeats({ seats }) {
+
+    return seats.map((seat, index) =>
+        <h2 key={index}>Assento {seat}</h2>
+    ) 
+}

@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -9,6 +9,9 @@ import './seat.css'
 export default function ChooseSeat() {
 
     const { sessionID } = useParams()
+
+    let data = useLocation()
+    const info = data.state
 
     const [movieData, setData] = useState({
 
@@ -45,7 +48,7 @@ export default function ChooseSeat() {
                     <div className="available"><div className="seat-available"></div><h1>Disponível</h1></div>
                     <div className="unavailable"><div className="seat-unavailable"></div><h1>Indisponível</h1></div>
                 </div>
-                <RenderInputs />
+                <RenderInputs movieinfo={movieData} seats={list} time={info} />
             </div>
             <Footer img={img} title={title} weekday={weekday} date={date} />
         </section>
@@ -78,18 +81,26 @@ function RenderThisSeat({ number, available, list, setList }) {
         onClick={() => available ? checkSeat(number) : alert(`seat ${number} is not available`)} ><h1>{number}</h1></div>
 }
 
-function RenderInputs() {
+function RenderInputs({ movieinfo, seats, time }) {
 
     const [inputs, setInputs] = useState({ nome: '', cpf: '', validate: false })
+
+    const { title, posterURL: img } = movieinfo.movie
+    const { weekday, date } = movieinfo.days
 
     function handleSubmit(e) {
 
         e.preventDefault()
 
-        if (inputs.nome.length < 10) { return alert('NOME inválido') }
-        if (inputs.cpf.length < 11) { return alert('CPF inválido') }
-        else { setInputs({ ...inputs, validate: true }) }
+        if (inputs.nome.length < 10) { return alert('NOME Inválido') }
+        if (inputs.cpf.length < 11) { return alert('CPF Inválido') }
+        else {
+            if (seats.length < 1) { return alert('Nenhum assento selecionado') }
+            setInputs({ ...inputs, validate: true })
+        }
     }
+
+    let superdata = { ...inputs, title: title, img: img, weekday: weekday, date: date, seats: seats, time: time }
 
     return (
         <div className="inputs-container">
@@ -101,7 +112,7 @@ function RenderInputs() {
                     onChange={e => setInputs({ ...inputs, cpf: e.target.value })} />
 
                 {inputs.validate ?
-                    <Link style={{ textDecoration: 'none' }} state={inputs} to={`/success/`}>
+                    <Link style={{ textDecoration: 'none' }} state={superdata} to={`/success/`}>
                         <button type="submit">CONFIRMAR ?</button></Link> :
                     <button type="submit">Reservar assento(s)</button>}
             </form>

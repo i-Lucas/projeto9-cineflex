@@ -1,0 +1,60 @@
+.success {
+
+    width: 100%;
+    height: 100vh;
+}
+
+.success-text {
+
+    width: 100%;
+    height: 20%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-text h1 {
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #247A6B;
+}
+
+.success-container {
+
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.success-container h1 {
+
+    margin-top: 5%;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
+
+.success-container h2 {
+
+    margin-top: 1%;
+
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.04em;
+    color: #293845;
+}
